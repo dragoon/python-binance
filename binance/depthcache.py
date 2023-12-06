@@ -364,10 +364,6 @@ class DepthCacheManager(BaseDepthCacheManager):
         if msg['u'] <= self._last_update_id:
             # ignore any updates before the initial update id
             return
-        elif msg['U'] != self._last_update_id + 1:
-            # if not buffered check we get sequential updates
-            # otherwise init cache again
-            await self._init_cache()
 
         # add any bid or ask values
         self._apply_orders(msg)
