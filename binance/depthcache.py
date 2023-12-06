@@ -324,10 +324,6 @@ class DepthCacheManager(BaseDepthCacheManager):
         # process bid and asks from the order book
         self._apply_orders(res)
         assert self._depth_cache
-        for bid in res['bids']:
-            self._depth_cache.add_bid(bid)
-        for ask in res['asks']:
-            self._depth_cache.add_ask(ask)
 
         # set first update id
         self._last_update_id = res['lastUpdateId']
